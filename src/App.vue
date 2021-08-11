@@ -2,12 +2,12 @@
 <div>
   <div v-if="!forMobile" class="app flex flex-column">
     <Navigation />
-    <div class="app-content flex flex-column">
+    <div style="width:100%" class="app-content flex flex-column">
       <router-view />
     </div>
   </div>
   <div v-else>
-    <p>Try use PC load this page :)</p>
+    <p>you for try use PC load this page :)</p>
   </div>
 </div>
 </template>
@@ -61,6 +61,7 @@ export default {
    padding: 0 20px;
    flex: 1;
    position: relative;
+   width: 100%;
  }
 }
 
