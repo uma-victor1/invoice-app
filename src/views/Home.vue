@@ -43,7 +43,7 @@ export default {
   components: {},
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss" scoped> 
 .home {
   color: #fff;  
 
@@ -72,11 +72,7 @@ export default {
           position: relative;
           margin-right: 40px;
           transition: all 2s ease-in;
-
-          span,
-          img {
-             pointer-events: none;
-          }
+          cursor: pointer;
 
           img {
             margin-left: 12px;
@@ -86,7 +82,7 @@ export default {
           .filter-menu {
             width: 120px;
             position: absolute;
-            top: 25px;
+            top: 25px; 
             list-style: none;
             background-color: #1e2139;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
@@ -100,6 +96,23 @@ export default {
                 color: #1e2139;
                 background-color: #fff;
               }
+            }
+          }
+        }
+
+        .button{
+          padding: 8px 10px;
+          background-color: #7c5dfa;
+          border-radius: 40px;
+
+          .inner-button {
+            margin-right: 8px;
+            border-radius: 50%;
+            padding: 8px;
+            justify-content: center;
+            background-color: #fff;
+            img {
+              width: 10px;
             }
           }
         }
