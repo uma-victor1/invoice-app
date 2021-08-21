@@ -64,7 +64,7 @@
         </div>
       </div>
       <!-- Invoice Work Details -->
-      <div class="inoice-work flex flex-column">
+      <div class="invoice-work flex flex-column">
         <div class="payment flex">
          <div class="input flex flex-column">
           <label for="invoiceDate">Invoice Date</label>
@@ -153,8 +153,7 @@ export default {
       invoiceItemList: [],
       invoiceTotal: 0,
         }
-    },
-
+    }
 }
 </script>
 
