@@ -3,7 +3,9 @@
   <div v-if="!forMobile" class="app flex flex-column">
     <Navigation />
     <div style="width:100%" class="app-content flex flex-column">
-      <InvoiceModal v-if="invoiceModal"/>
+      <transition name="invoice">
+         <InvoiceModal v-if="invoiceModal"/>
+      </transition> 
       <router-view />
     </div>
   </div>
@@ -71,6 +73,18 @@ export default {
    width: 100%;
  }
 }
+
+// animated modal
+.invoice-enter-active,
+.invoice-leave-active {
+  transition: 1s ease all;
+}
+
+.invoice-enter-from,
+.invoice-leave-to {
+  transform: translateX(-700px);
+}
+
 
 button,
 .button {
