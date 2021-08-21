@@ -125,6 +125,7 @@
 </template>
 
 <script>
+import {mapMutations} from "vuex"
 export default {
     name: "InvoiceModal",
     data() {
@@ -153,7 +154,13 @@ export default {
       invoiceItemList: [],
       invoiceTotal: 0,
         }
-    }
+    },
+    methods: {
+ ...mapMutations(["showModal"]),
+    closeInvoice(){
+      this.showModal()
+    },
+    },
 }
 </script>
 

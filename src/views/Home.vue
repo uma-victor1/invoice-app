@@ -29,13 +29,18 @@
 </template>
 
 <script>
+import {mapMutations} from "vuex"
 export default {
   name: "Home",data() {
     return {
-      filterMenu: true,
+      filterMenu: false,
     }
   },
   methods: {
+    ...mapMutations(["showModal"]),
+    newInvoice(){
+      this.showModal()
+    },
     toggleFilterMenu() {
       this.filterMenu = !this.filterMenu
     }
@@ -104,6 +109,7 @@ export default {
           padding: 8px 10px;
           background-color: #7c5dfa;
           border-radius: 40px;
+          z-index: 2;
 
           .inner-button {
             margin-right: 8px;
