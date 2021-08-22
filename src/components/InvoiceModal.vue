@@ -126,6 +126,7 @@
 
 <script>
 import {mapMutations} from "vuex"
+import {uid} from "uid"
 export default {
     name: "InvoiceModal",
     data() {
@@ -155,12 +156,43 @@ export default {
       invoiceTotal: 0,
         }
     },
+    created () {
+      // get current date for invoice date
+      this.invoiceDateUnix = Date.now()
+      this.invoiceDate = new Date(this.invoiceDateUnix).toLocaleDateString("en-us", this.dateOptions)
+
+    },
     methods: {
  ...mapMutations(["showModal"]),
     closeInvoice(){
       this.showModal()
     },
+
+  // adding new items
+  addNewInvoiceItem() {
+    this.invoiceItemList.push({
+      id: uid(),
+      itemName: "",
+      qty: "",
+      price: 0,
+      total: 0
+    })
+  },
+
+  // delete an item
+  deleteInvoiceItem(id) {
+   this.invoiceItemList = this.invoiceItemList.filter(item => {
+      return item.id !== id
+    })
+  }
     },
+    watch: {
+      paymentTerms(){
+        const futureDate = new Date()
+        this.paymentDueDateUnix = futureDate.setDate(futureDate.getDate() + parseInt(this.paymentTerms));
+        this.paymentDueDate = new Date(this.paymentDueDateUnix).toLocaleDateString("en-us", this.dateOptions)
+      }
+    } 
 }
 </script>
 
