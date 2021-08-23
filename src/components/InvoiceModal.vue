@@ -184,7 +184,35 @@ export default {
    this.invoiceItemList = this.invoiceItemList.filter(item => {
       return item.id !== id
     })
+  },
+  // publish invoice
+  publishInvoice() {
+    this.invoicePending = true;
+  },
+  // calculate Invoice Total
+  calInvoiceTotal() {
+    this.invoiceTotal = 0;
+    this.invoiceTotal.forEach(item => {
+      this.invoiceTotal += item.total;
+    })
+  },
+  // save draft
+  savedraft() {
+    this.invoiceDraft = true;
+  },
+
+  async uploadInvoice() {
+    if (this.invoiceItemList.length <= 0) {
+      alert("please ensure you filled out work items")
+      return;
+    }
+   this.calInvoiceTotal(); 
+  },
+  // submit form
+  submitForm() {
+    this.uploadInvoice()
   }
+
     },
     watch: {
       paymentTerms(){
