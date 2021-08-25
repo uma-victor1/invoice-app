@@ -114,11 +114,11 @@
       <!-- Save/Exit -->
       <div class="save flex">
         <div class="left">
-          <button @click="closeInvoice" class="red">Cancel</button>
+          <button type="button" @click="closeInvoice" class="red">Cancel</button>
         </div>
         <div class="right flex">
-          <button @click="savedraft" class="dark-purple">Save Draft</button>
-          <button @click="publishInvoice" class="purple">Create Invoice</button>
+          <button type="button" @click="savedraft" class="dark-purple">Save Draft</button>
+          <button type="submit" @click="publishInvoice" class="purple">Create Invoice</button>
         </div>
       </div>
     </form>
@@ -169,7 +169,14 @@ export default {
 
     },
     methods: {
- ...mapMutations(["showModal"]),
+ ...mapMutations(["showModal", "TOGGLE_MODAL"]),
+
+  checkClick(e) {
+    if(e.target == this.$refs.invoiceWrap) {
+      this.TOGGLE_MODAL()
+    } 
+  }, 
+
     closeInvoice(){
       this.showModal()
     },
