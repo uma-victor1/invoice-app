@@ -193,7 +193,7 @@ export default {
   // calculate Invoice Total
   calInvoiceTotal() {
     this.invoiceTotal = 0;
-    this.invoiceTotal.forEach(item => {
+    this.invoiceItemList.forEach(item => {
       this.invoiceTotal += item.total;
     })
   },
@@ -235,7 +235,9 @@ export default {
         invoiceDraft: this.invoiceDraft,
         invoicePaid: null,
         })
-  },
+
+  this.closeInvoice()
+ },
   // submit form
   submitForm() {
     this.uploadInvoice()
