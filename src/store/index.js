@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    invoiceData: [],
     invoiceModal: false,
     modalActive: null
   },
@@ -14,6 +15,14 @@ export default createStore({
     }
   },
   actions: {
+   async GET_INVOICES({commit, state}) {
+      const results = await db.collection('invoices').get();
+      results.forEach(doc => {
+        if(!state.invoiceData.some(invoice > invoice.docId ===doc.id)) {
+          
+        }
+      });
+    }
   },
   modules: {
   }
