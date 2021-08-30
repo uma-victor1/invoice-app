@@ -4,7 +4,8 @@ export default createStore({
   state: {
     invoiceData: [],
     invoiceModal: false,
-    modalActive: null
+    modalActive: null,
+    invoicesLoaded: null
   },
   mutations: {
     showModal(state){
@@ -12,6 +13,9 @@ export default createStore({
     },
     TOGGLE_MODAL(state) {
       state.modalActive = !state.modalActive
+    },
+    SET_INVOICE_DATA(state,payload) {
+      state.invoiceData.push(payload)
     }
   },
   actions: {
